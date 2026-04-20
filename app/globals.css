@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg: #0a0b0e;
+  --surface: #111318;
+  --surface2: #1a1d25;
+  --border: #232736;
+  --accent: #00e5a0;
+  --accent2: #ff6b35;
+  --accent3: #4f8ef7;
+  --text: #e8eaf2;
+  --muted: #6b7280;
+  --danger: #ef4444;
+  --warn: #f59e0b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  margin: 0;
+}
+
+.mono { font-family: 'IBM Plex Mono', monospace; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-sm {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.accent-border-left {
+  border-left: 3px solid var(--accent);
+}
+
+.tab-active {
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+}
+
+.tab-inactive {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.tab-inactive:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.kpi-up { color: var(--accent); }
+.kpi-down { color: var(--danger); }
+.kpi-neutral { color: var(--accent3); }
+
+.slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.risk-low { color: var(--accent); }
+.risk-med { color: var(--warn); }
+.risk-high { color: var(--danger); }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+
+.recharts-tooltip-wrapper { outline: none !important; }
